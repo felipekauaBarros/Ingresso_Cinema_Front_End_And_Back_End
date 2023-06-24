@@ -1,0 +1,63 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()"
+  class="form"
+>
+  <div class="formingresso">
+    <h1>Formulário para {{acao}}</h1>
+    <mat-form-field>
+      <mat-label>Nome do Evento</mat-label>
+      <input matInput formControlName="nomeEvento">
+      <mat-error *ngIf="handleError('nomeEvento', 'required')">
+        O nome é obrigatório
+      </mat-error>
+      <mat-error *ngIf="handleError('nomeEvento', 'minlength')">
+        O minimo de 3 caracteres
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Local</mat-label>
+      <input matInput formControlName="loCal">
+      <mat-error *ngIf="handleError('loCal', 'required')">
+        O local do evento é obrigatório
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Descrição</mat-label>
+      <input matInput formControlName="descricaoIngresso">
+      <mat-error *ngIf="handleError('descricaoIngresso', 'required')">
+        A descrição é obrigatório
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Data do Ingresso</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dataIngresso">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tipo de Ingresso</mat-label>
+      <mat-select formControlName="tipoIngresso">
+        <mat-option value="Inteira">Inteira</mat-option>
+      </mat-select>
+      <mat-error *ngIf="handleError('tipoIngresso', 'required')">
+        O tipo é obrigatório
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Valor do Ingresso</mat-label>
+      <input matInput formControlName="valorIngresso">
+      <mat-error *ngIf="handleError('valorIngresso', 'required')">
+        O valor do ingresso é obrigatório
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+    <mat-label>Quantidade de Ingresso</mat-label>
+    <input matInput formControlName="quantidadeIngresso">
+    <mat-error *ngIf="handleError('quantidadeIngresso', 'required')">
+      O valor do ingresso é obrigatório
+    </mat-error>
+    </mat-form-field>
+  </div>
+    <button mat-raised-button type="submit" class="btSavecadastro"color="warn">Salvar</button>
+</form>

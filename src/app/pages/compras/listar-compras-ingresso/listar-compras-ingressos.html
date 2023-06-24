@@ -1,0 +1,48 @@
+<div>
+  <form class="textoBuscaCompra">
+    <input type="text" class="inputBuscar" id="idIngresso" [formControl]="nomeBusca"
+           placeholder="Digite para buscar ingresso"
+           [matAutocomplete]="auto">
+    <button mat-raised-button color="warn" (click)="buscarIngresso()" class="btPesquisarIngresso">Buscar</button>
+    <button mat-raised-button color="warn" (click)="limparBusca()" class="btPesquisarIngresso">Limpar</button>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let ingresso of filtartIngressos | async" [value]="ingresso">
+        {{displayFn(ingresso)}}
+      </mat-option >
+    </mat-autocomplete>
+  </form>
+</div>
+<p></p>
+<fieldset>
+  <p mat-line></p>
+  <mat-list-item *ngFor="let ingresso of ingressosFiltrados">
+    <fieldset>
+      <mat-divider></mat-divider>
+      <h2 matLine class="listnomeEvento">{{ingresso.nomeEvento}}</h2>
+      <h4 matLine class="listdescricaoIngresso">{{ingresso.descricaoIngresso}}</h4>
+      <p mat-line><span>Local: {{ingresso.loCal}}</span></p>
+      <p mat-line class="ingressodataIngresso">Data do Ingresso: {{ingresso.dataIngresso}}</p>
+      <p matLine>Tipo do Ingresso: {{ingresso.tipoIngresso}}</p>
+      <p matLine>Valor do Ingresso: R$ {{ingresso.valorIngresso}}</p>
+      <p mat-line>Quantidade disponível: {{ingresso.quantidadeIngresso}}</p>
+
+      <p matLine><b>Quantidade a comprar: <button mat-raised-button class="btmenosquantidade" (click)="diminuirQuantidade(ingresso)">-</button>
+        {{ingresso.quantidadeCompra || 0}}
+        <button mat-raised-button class="btmaisquantidade" (click)="aumentarQuantidade(ingresso)">+</button></b> </p>
+      <p mat-line><b>Total por Ingresso:R$ {{ingresso.valorTotal || 0}}</b> </p>
+      <button mat-raised-button class="btadicionarcompra" color="warn" (click)="fazerCompra(ingresso)">
+        <mat-icon>add_shopping_cart</mat-icon>
+        <span>Adicionar Carrinho</span></button>
+    </fieldset>
+    <p></p>
+  </mat-list-item>
+  <p mat-line></p>
+  <button mat-raised-button class="btefetuarComprarodape"  (click)="finalizarCompra()">
+    <span>Finalizar Compra</span>
+    <mat-icon>add_shopping_cart</mat-icon>
+  </button>
+  <p mat-line></p>
+</fieldset>
+
+
+

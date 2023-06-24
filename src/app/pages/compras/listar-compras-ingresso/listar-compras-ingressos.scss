@@ -1,0 +1,57 @@
+.listnomeEvento {
+  text-align: center;
+}
+.listloCal {
+  text-align: center;
+}
+.inputBuscar {
+  width: 900px;
+  height: 40px;
+}
+.btPesquisarIngresso {
+  font-size: 14px;
+  margin-left: 20px;
+  min-width: 110px;
+  background-color: orange;
+}
+.btLimparPesquisa {
+  background-color: orange;
+}
+.textoBuscaCompra {
+}
+
+.btmaisquantidade {
+  background-color: orange;
+  color: white;
+}
+
+.btmenosquantidade {
+  background-color: orange;
+  color: white;
+}
+
+.btadicionarcompra {
+  background-color: orange;
+  float: right;
+}
+
+.btefetuarCompra {
+  background-color: orange;
+  text-align: left;
+}
+
+.btefetuarCompra button {
+  float: right;
+}
+
+.btefetuarComprarodape {
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  color: white;
+
+}
+
+

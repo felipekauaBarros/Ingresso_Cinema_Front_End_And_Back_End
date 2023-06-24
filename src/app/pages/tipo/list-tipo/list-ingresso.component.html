@@ -1,0 +1,65 @@
+<section class="example-container mat-elevation-z8" tabindex="0">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="idCodigo">
+      <th mat-header-cell *matHeaderCellDef> Id Código </th>
+      <td mat-cell *matCellDef="let element"> {{element.idCodigo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeEvento">
+      <th mat-header-cell *matHeaderCellDef> Nome do Evento </th>
+      <td mat-cell *matCellDef="let element"> {{element.nomeEvento}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="loCal">
+      <th mat-header-cell *matHeaderCellDef> Local </th>
+      <td mat-cell *matCellDef="let element"> {{element.loCal}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descricaoIngresso">
+      <th mat-header-cell *matHeaderCellDef> Descrição </th>
+      <td mat-cell *matCellDef="let element"> {{element.descricaoIngresso}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataIngresso">
+      <th mat-header-cell *matHeaderCellDef> Data do Ingresso </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataIngresso}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipoIngresso">
+      <th mat-header-cell *matHeaderCellDef> Tipo Ingresso </th>
+      <td mat-cell *matCellDef="let element"> {{element.tipoIngresso}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valorIngresso">
+      <th mat-header-cell *matHeaderCellDef> Valor do Ingresso </th>
+      <td mat-cell *matCellDef="let element"> {{element.valorIngresso}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantidadeIngresso">
+      <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantidadeIngresso}} </td>
+    </ng-container>
+
+    <!-- Ação column-->
+    <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef> Excluir </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-mini-fab class="btExcluir" color="warn" (click)="confirmarExcluir(element)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </td>
+    </ng-container>
+    <ng-container matColumnDef="acao2">
+      <th mat-header-cell *matHeaderCellDef> Alterar </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-mini-fab class="btAlterar" color="warn" [routerLink]="['/ingresso', element.idCodigo]" >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
